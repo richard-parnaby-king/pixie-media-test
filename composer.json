@@ -10,7 +10,7 @@
         }
     },
     "scripts": {
-        "post-update-cmd": [
+        "post-root-package-install": [
             "@php ../../../bin/magento setup:update && ../../../bin/magento setup:di:compile"
         ]
     },
