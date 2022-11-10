@@ -1,4 +1,13 @@
 <?xml version="1.0" ?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
 
+	<preference for="RichardParnabyKing\PixieMediaTest\Api\ApiRepositoryInterface" 
+                type="RichardParnabyKing\PixieMediaTest\Model\ApiRepository" />
+    
+	<preference for="RichardParnabyKing\PixieMediaTest\Api\Data\ApiInterface" 
+                type="RichardParnabyKing\PixieMediaTest\Model\Data\Api" />
+    
+	<preference for="RichardParnabyKing\PixieMediaTest\Api\Data\ApiSearchResultsInterface"
+                type="Magento\Framework\Api\SearchResults" />
+    
 </config>
