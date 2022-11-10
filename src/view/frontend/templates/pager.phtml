@@ -1,0 +1,32 @@
+<?php
+// get custom data
+$chuck_data = $block->getChuckData();
+?>
+<fieldset class="fieldset">
+    <?php
+    if (count($chuck_data)) {
+        ?>
+        <div class="table-wrapper custom-data ">
+            <table class="data table table-data-items ">
+                <tbody>
+                <?php foreach ($chuck_data as $item): ?>
+                    <tr>
+                        <td class="col name">
+                         <span><a href="<?= $block->escapeHtml($item->getUrl()) ?>" target="_blank"><?= $block->escapeHtml($item->getValue()) ?></a></span>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+        <?php if ($block->getPagerHtml()): ?>
+                <div class="order-products-toolbar toolbar bottom">
+                    <?= $block->getPagerHtml() ?>
+                </div>
+        <?php endif ?>
+    <?php } else { ?>
+                <div class="message info empty">
+                    <span><?= $block->escapeHtml('You have no data in table.') ?></span>
+                </div>
+    <?php  } ?>
+</fieldset>

@@ -9,10 +9,5 @@
             "RichardParnabyKing\\PixieMediaTest\\": "src/"
         }
     },
-    "scripts": {
-        "post-root-package-install": [
-            "@php ../../../bin/magento setup:update && ../../../bin/magento setup:di:compile"
-        ]
-    },
     "minimum-stability": "dev"
 }
