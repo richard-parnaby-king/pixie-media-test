@@ -110,25 +110,4 @@ class Api extends \Magento\Framework\Model\AbstractModel implements ApiInterface
     public function setValue($value) {
         return $this->setData(self::VALUE, $value); 
     }
-
-    /**
-     * @inheritdoc
-     *
-     * @return \Magento\Framework\Api\ExtensionAttributesInterface
-     */
-    public function getExtensionAttributes() {
-        return $this->_getExtensionAttributes();
-    }
-
-    /**
-     * @inheritdoc
-     *
-     * @param \Magento\Catalog\Api\Data\ProductExtensionInterface $extensionAttributes
-     * @return $this
-     */
-    public function setExtensionAttributes(\Magento\Catalog\Api\Data\ProductExtensionInterface $extensionAttributes) {
-        return $this->_setExtensionAttributes($extensionAttributes);
-    }
-
-    
 }
