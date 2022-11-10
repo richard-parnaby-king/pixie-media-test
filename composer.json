@@ -6,7 +6,7 @@
     "autoload": {
         "files": [ "src/registration.php" ],
         "psr-4": {
-            "RichardParnabyKing\\PixieMedia\\": "src/"
+            "RichardParnabyKing\\PixieMediaTest\\": "src/"
         }
     },
     "minimum-stability": "dev"
