@@ -87,24 +87,8 @@ class ApiRepository implements ApiRepositoryInterface
     public function save(
         \RichardParnabyKing\PixieMediaTest\Api\Data\ApiInterface $api
     ) {
-        
-        $apiData = $this->extensibleDataObjectConverter->toNestedArray(
-            $api,
-            [],
-            \RichardParnabyKing\PixieMediaTest\Api\Data\ApiInterface::class
-        );
-        
-        $apiModel = $this->apiFactory->create()->setData($apiData);
-        
-        try {
-            $this->resource->save($apiModel);
-        } catch (\Exception $exception) {
-            throw new CouldNotSaveException(__(
-                'Could not save the api: %1',
-                $exception->getMessage()
-            ));
-        }
-        return $apiModel->getDataModel();
+        $api->getResource()->save($api);
+        return $api;
     }
 
     /**
@@ -117,7 +101,7 @@ class ApiRepository implements ApiRepositoryInterface
         if (!$api->getId()) {
             throw new NoSuchEntityException(__('Api with id "%1" does not exist.', $apiId));
         }
-        return $api->getDataModel();
+        return $api;
     }
 
     /**
@@ -126,26 +110,14 @@ class ApiRepository implements ApiRepositoryInterface
     public function getList(
         \Magento\Framework\Api\SearchCriteriaInterface $criteria
     ) {
-        $collection = $this->apiCollectionFactory->create();
-        
-        $this->extensionAttributesJoinProcessor->process(
-            $collection,
-            \RichardParnabyKing\PixieMediaTest\Api\Data\ApiInterface::class
-        );
-        
-        $this->collectionProcessor->process($criteria, $collection);
-        
-        $searchResults = $this->searchResultsFactory->create();
-        $searchResults->setSearchCriteria($criteria);
-        
-        $items = [];
-        foreach ($collection as $model) {
-            $items[] = $model->getDataModel();
-        }
-        
-        $searchResults->setItems($items);
-        $searchResults->setTotalCount($collection->getSize());
-        return $searchResults;
+       $collection = $this->apiCollectionFactory->create();
+       $this->collectionProcessor->process($criteria, $collection);
+       $searchResults = $this->searchResultFactory->create();
+ 
+       $searchResults->setSearchCriteria($criteria);
+       $searchResults->setItems($collection->getItems());
+ 
+       return $searchResults;
     }
 
     /**
@@ -154,17 +126,7 @@ class ApiRepository implements ApiRepositoryInterface
     public function delete(
         \RichardParnabyKing\PixieMediaTest\Api\Data\ApiInterface $api
     ) {
-        try {
-            $apiModel = $this->apiFactory->create();
-            $this->resource->load($apiModel, $api->getApiId());
-            $this->resource->delete($apiModel);
-        } catch (\Exception $exception) {
-            throw new CouldNotDeleteException(__(
-                'Could not delete the Api: %1',
-                $exception->getMessage()
-            ));
-        }
-        return true;
+        $api->getResource()->delete($api);
     }
 
     /**

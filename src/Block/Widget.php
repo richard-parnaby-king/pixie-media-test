@@ -37,6 +37,11 @@ class Widget extends \Magento\Framework\View\Element\Template implements BlockIn
             catch (NoSuchEntityException $e) {
                 $value = $e->getMessage();
             }
+            //For debugging only, show any other generic message. In real code, would
+            // add to logger instance and return an empty string.
+            catch (\Exception $e) {
+                $value = $e->getMessage();
+            }
         }
         return $value;
     }
