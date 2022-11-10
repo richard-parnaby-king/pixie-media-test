@@ -2,7 +2,7 @@
 
 namespace RichardParnabyKing\PixieMediaTest\Block;
 
-use \Magento\Framework\View\Element\Template;
+use Magento\Framework\View\Element\Template;
 
 class Pager extends Template
 {
@@ -23,8 +23,8 @@ class Pager extends Template
     protected function _prepareLayout() {
         parent::_prepareLayout();
         $page_size = $this->getPagerCount();
-        $page_data = $this->getCustomData();
-        if ($this->getCustomData()) {
+        $page_data = $this->getChuckData();
+        if ($this->getChuckData()) {
             $pager = $this->getLayout()->createBlock(
                 \Magento\Theme\Block\Html\Pager::class,
                 'api.pager'
@@ -33,7 +33,7 @@ class Pager extends Template
                 ->setShowPerPage(true)
                 ->setCollection($page_data);
             $this->setChild('pager', $pager);
-            $this->getCustomData()->load();
+            $this->getChuckData()->load();
         }
         return $this;
     }
@@ -44,8 +44,8 @@ class Pager extends Template
 
     public function getChuckData() {
         // get param values
-        $page = ($this->getRequest()->getParam('p')) ? $this->getRequest()->getParam('p') : 1;
-        $pageSize = ($this->getRequest()->getParam('limit')) ? $this->getRequest()->getParam('limit') : 25; // set minimum records
+        $page = $this->getRequest()->getParam('p', 1);
+        $pageSize = $this->getRequest()->getParam('limit', 25);
         // get custom collection
         $collection = $this->apiFactory->getCollection();
         $collection->setPageSize($pageSize);
