@@ -10,7 +10,7 @@
         </referenceBlock>
         
         <referenceContainer name="content">
-            <block class="\RichardParnabyKing\PixieMediaTest\Block\Pager"
+            <block class="RichardParnabyKing\PixieMediaTest\Block\Pager"
                    name="chuck_fact"
                    template="RichardParnabyKing_PixieMediaTest::pager.phtml"
             />
