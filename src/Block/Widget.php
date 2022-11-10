@@ -12,11 +12,14 @@ class Widget extends \Magento\Framework\View\Element\Template implements BlockIn
     protected $helper;
     
     public function __construct(
+        \Magento\Framework\View\Element\Template\Context $context,
         \RichardParnabyKing\PixieMediaTest\Api\ApiRepositoryInterface $apiRepo,
-        \RichardParnabyKing\PixieMediaTest\Helper\Data $helper
+        \RichardParnabyKing\PixieMediaTest\Helper\Data $helper,
+        array $data = []
     ) {
         $this->apiRepo = $apiRepo;
         $this->helper = $helper;
+        parent::__construct($context, $data);
     }
     
     /**
