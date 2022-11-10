@@ -45,7 +45,7 @@ class Pager extends Template
     public function getChuckData() {
         // get param values
         $page = $this->getRequest()->getParam('p', 1);
-        $pageSize = $this->getRequest()->getParam('limit', 25);
+        $pageSize = $this->getRequest()->getParam('limit', 10);
         // get custom collection
         $collection = $this->apiFactory->getCollection();
         $collection->setPageSize($pageSize);
@@ -54,25 +54,6 @@ class Pager extends Template
     }
 
     public function getPagerCount() {
-        // get collection
-        $minimum_show = 25; // set minimum records
-        $page_array = [];
-        $list_data = $this->apiCollectionFactory->create();
-        $list_count = ceil(count($list_data->getData()));
-        $show_count = $minimum_show + 1;
-        if (count($list_data->getData()) >= $show_count) {
-            $list_count = $list_count / $minimum_show;
-            $page_nu = $total = $minimum_show;
-            $page_array[$minimum_show] = $minimum_show;
-            for ($x = 0; $x <= $list_count; $x++) {
-                $total = $total + $page_nu;
-                $page_array[$total] = $total;
-            }
-        } else {
-            $page_array[$minimum_show] = $minimum_show;
-            $minimum_show = $minimum_show + $minimum_show;
-            $page_array[$minimum_show] = $minimum_show;
-        }
-        return $page_array;
+        return [ 10, 25, 50, 100 ];
     }
 }
