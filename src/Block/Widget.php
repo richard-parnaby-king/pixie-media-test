@@ -12,7 +12,7 @@ class Widget implements BlockInterface
     protected $helper;
     
     public function __construct(
-        \RichardParnabyKing\PixieMediaTest\Api\ApiRepositoryInterface $apiRepo
+        \RichardParnabyKing\PixieMediaTest\Api\ApiRepositoryInterface $apiRepo,
         \RichardParnabyKing\PixieMediaTest\Helper\Data $helper
     ) {
         $this->apiRepo = $apiRepo;
