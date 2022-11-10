@@ -1,9 +1,10 @@
 {
     "name": "richard-parnaby-king/pixie-media-test",
     "description": "Pixie Media test module. Fetch data from a remote api, store it in magento, show the data in admin grid and let admin edit the data.",
-    "type": "library",
+    "type": "magento2-module",
     "license": "MIT",
     "autoload": {
+        "files": [ "src/registration.php" ],
         "psr-4": {
             "RichardParnabyKing\\PixieMedia\\": "src/"
         }
