@@ -5,7 +5,7 @@ namespace RichardParnabyKing\PixieMediaTest\Block;
 use Magento\Widget\Block\BlockInterface;
 use Magento\Framework\Exception\NoSuchEntityException;
 
-class Widget implements BlockInterface
+class Widget extends \Magento\Framework\View\Element\Template implements BlockInterface
 {
     protected $_template = "widget.phtml";
     protected $apiRepo;
@@ -31,7 +31,7 @@ class Widget implements BlockInterface
                 $value = $this->apiRepo->get($id)->getValue();
             }
             //If value does not exist, show error message
-            catch (\NoSuchEntityException $e) {
+            catch (NoSuchEntityException $e) {
                 $value = $e->getMessage();
             }
         }
