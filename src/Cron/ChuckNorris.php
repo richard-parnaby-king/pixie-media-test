@@ -23,7 +23,8 @@ class ChuckNorris
         //Send request to get most recent data. Hard-coded api endpoint here but
         // would usually set the api endpoint as admin config editable. I think
         // that's not required for this test.
-        $results = $this->curl->get('https://api.chucknorris.io/jokes/search?query=beard');
+        $this->curl->get('https://api.chucknorris.io/jokes/search?query=beard');
+        $results = json_decode($this->curl->getBody(), true);
         $results = $results['result'];
         
         //For each result, check if it already exists in the database and, if not,
