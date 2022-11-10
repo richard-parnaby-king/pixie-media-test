@@ -1,0 +1,13 @@
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget class="RichardParnabyKing\PixieMediaTest\Block\Widget" id="richardparnabyking_pixiemediatest_widget">
+        <label>Chuck Norris Widget</label>
+        <description>Specify an ID and show a record.</description>
+        
+        <parameters>
+            <parameter name="id" xsi:type="text" required="true" visible="true" sort_order="10">
+                <label>Record Id</label>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

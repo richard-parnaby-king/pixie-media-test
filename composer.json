@@ -8,8 +8,5 @@
             "RichardParnabyKing\\PixieMedia\\": "src/"
         }
     },
-    "minimum-stability": "dev",
-    "require": {
-        "curl/curl": "dev-master"
-    }
+    "minimum-stability": "dev"
 }

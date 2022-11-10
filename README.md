@@ -8,11 +8,5 @@ This is a small test package that provides a service for retrieving data from a 
 composer require richard-parnaby-king/pixie-media-test
 ```
 
-## Dependencies
-
-This package requires the following dependencies:
-
-* curl/curl
-
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
