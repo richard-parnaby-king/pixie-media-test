@@ -18,6 +18,8 @@ class Index extends \Magento\Framework\App\Action\Action
     }
 
     public function execute() {
-        return $this->pageFactory->create();
+        $resultPage = $this->pageFactory->create();
+        $resultPage->getConfig()->getTitle()->set(__('Chuck Facts'));
+        return $resultPage;
     }
 }
