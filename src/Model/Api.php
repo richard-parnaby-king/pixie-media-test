@@ -4,8 +4,17 @@ namespace RichardParnabyKing\PixieMediaTest\Model;
 
 use RichardParnabyKing\PixieMediaTest\Api\Data\ApiInterface;
 
-class Api extends \Magento\Framework\Model\AbstractExtensibleModel implements ApiInterface
+class Api extends \Magento\Framework\Model\AbstractModel implements ApiInterface
 {
+
+    /**
+     * Define resource model
+     *
+     * @return void
+     */
+    protected function _construct() {
+        $this->_init(\RichardParnabyKing\PixieMediaTest\Model\ResourceModel\Api::class);
+    }
     
     /**
      * @inheritdoc
