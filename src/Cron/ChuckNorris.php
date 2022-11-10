@@ -33,14 +33,14 @@ class ChuckNorris
         foreach($results as $result) {
             
             $collection = $this->apiCollection->create();
-            $collection->addFieldToFilter('remote_id', $result->id);
+            $collection->addFieldToFilter('remote_id', $result['id']);
             if($collection->count() === 0) {
                 //If not in db, create and save record in db
                 $apiRow = $this->apiFactory->create();
-                $apiRow->setRemoteId($result->id)
-                     ->setCreatedAt($result->created_at)
-                     ->setUrl($result->url)
-                     ->setValue($result->value)
+                $apiRow->setRemoteId($result['id'])
+                     ->setCreatedAt($result['created_at'])
+                     ->setUrl($result['url'])
+                     ->setValue($result['value'])
                      ->save();
             }
         }
