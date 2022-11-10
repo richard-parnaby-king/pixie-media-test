@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+	<system>
+		<section id="richardparnabyking_pixiemediatest" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="9999" translate="label">
+			<label>Chuck Norris</label>
+			<tab>richardpk</tab>
+			<resource>RichardParnabyKing_PixieMediaTest::config_richardparnabyking_pixiemediatest</resource>
+			<group id="chuck_norris" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="999" translate="label">
+				<label>Chuck Norris Api</label>
+				<field id="enabled" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+					<label>Is Enabled</label>
+					<comment/>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+			</group>
+		</section>
+	</system>
+</config>

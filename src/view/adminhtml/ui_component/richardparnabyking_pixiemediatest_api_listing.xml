@@ -1,0 +1,263 @@
+<?xml version="1.0" ?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+	<argument name="data" xsi:type="array">
+		<item name="js_config" xsi:type="array">
+			<item name="provider" xsi:type="string">richardparnabyking_pixiemediatest_api_listing.richardparnabyking_pixiemediatest_api_listing_data_source</item>
+		</item>
+	</argument>
+	<settings>
+		<spinner>richardparnabyking_pixiemediatest_api_columns</spinner>
+		<deps>
+			<dep>richardparnabyking_pixiemediatest_api_listing.richardparnabyking_pixiemediatest_api_listing_data_source</dep>
+		</deps>
+		<buttons>
+			<button name="add">
+				<url path="*/*/new"/>
+				<class>primary</class>
+				<label translate="true">Add new Api</label>
+			</button>
+		</buttons>
+	</settings>
+	<dataSource component="Magento_Ui/js/grid/provider" name="richardparnabyking_pixiemediatest_api_listing_data_source">
+		<settings>
+			<updateUrl path="mui/index/render"/>
+		</settings>
+		<aclResource>RichardParnabyKing_PixieMediaTest::Api</aclResource>
+		<dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider" name="richardparnabyking_pixiemediatest_api_listing_data_source">
+			<settings>
+				<requestFieldName>id</requestFieldName>
+				<primaryFieldName>id</primaryFieldName>
+			</settings>
+		</dataProvider>
+	</dataSource>
+    <listingToolbar name="listing_top">
+		<settings>
+			<sticky>true</sticky>
+		</settings>
+		<bookmark name="bookmarks"/>
+		<columnsControls name="columns_controls"/>
+		<filters name="listing_filters"/>
+		<paging name="listing_paging"/>
+	</listingToolbar>
+	<columns name="richardparnabyking_pixiemediatest_api_columns">
+		<settings>
+			<editorConfig>
+				<param name="selectProvider" xsi:type="string">richardparnabyking_pixiemediatest_api_listing.richardparnabyking_pixiemediatest_api_listing.richardparnabyking_pixiemediatest_api_columns.ids</param>
+				<param name="enabled" xsi:type="boolean">true</param>
+				<param name="indexField" xsi:type="string">id</param>
+				<param name="clientConfig" xsi:type="array">
+					<item name="saveUrl" path="richardparnabyking_pixiemediatest/Api/inlineEdit" xsi:type="url"/>
+					<item name="validateBeforeSave" xsi:type="boolean">false</item>
+				</param>
+			</editorConfig>
+			<childDefaults>
+				<param name="fieldAction" xsi:type="array">
+					<item name="provider" xsi:type="string">richardparnabyking_pixiemediatest_api_listing.richardparnabyking_pixiemediatest_api_listing.richardparnabyking_pixiemediatest_api_columns_editor</item>
+					<item name="target" xsi:type="string">startEdit</item>
+					<item name="params" xsi:type="array">
+						<item name="0" xsi:type="string">${ $.$data.rowIndex }</item>
+						<item name="1" xsi:type="boolean">true</item>
+					</item>
+				</param>
+			</childDefaults>
+		</settings>
+		<selectionsColumn name="ids">
+			<settings>
+				<indexField>id</indexField>
+			</settings>
+		</selectionsColumn>
+		
+        <column name="id">
+			<settings>
+				<filter>text</filter>
+				<sorting>asc</sorting>
+				<label translate="true">ID</label>
+			</settings>
+		</column>
+        
+        <column name="customer_id">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">RichardParnabyKing\PixieMediaTest\Model\Config\Source\Customers</item>
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">select</item>
+                    <item name="label" translate="true" xsi:type="string">Customer</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/select</item>
+                    <item name="dataType" xsi:type="string">select</item>
+                    <item name="editor" xsi:type="array">
+                        <item name="editorType" xsi:type="string">select</item>
+                    </item>
+                </item>
+            </argument>
+        </column>
+        
+		<column name="species">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">Species</label>
+				<editor>
+					<editorType>text</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">false</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+		<column name="name">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">Name</label>
+				<editor>
+					<editorType>text</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">false</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+		<column name="breed">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">Breed</label>
+				<editor>
+					<editorType>text</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">false</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+		
+		<column name="number_of_apis">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">Number of Apis</label>
+				<editor>
+					<editorType>text</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">false</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+        <column name="api_age_years">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">Birth Year</label>
+				<editor>
+					<editorType>text</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">false</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+		<column name="api_age_months">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">Birth Month</label>
+				<editor>
+					<editorType>text</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">false</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+		<column name="weight">
+			<settings>
+				<label translate="true">Weight (Kg)</label>
+				<editor>
+					<editorType>text</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">false</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+		<column name="is_api_healthy">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Magento\Config\Model\Config\Source\Yesno</item>
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">select</item>
+                    <item name="label" translate="true" xsi:type="string">Is Api Healthy</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/select</item>
+                    <item name="dataType" xsi:type="string">select</item>
+                    <item name="editor" xsi:type="array">
+                        <item name="editorType" xsi:type="string">select</item>
+                    </item>
+                </item>
+            </argument>
+		</column>
+		<column name="out_of_foodchain">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Magento\Config\Model\Config\Source\Yesno</item>
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">select</item>
+                    <item name="label" translate="true" xsi:type="string">Is the api signed out of the Food Chain?</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/select</item>
+                    <item name="dataType" xsi:type="string">select</item>
+                    <item name="editor" xsi:type="array">
+                        <item name="editorType" xsi:type="string">select</item>
+                    </item>
+                </item>
+            </argument>
+		</column>
+		<column name="is_api_pregnant">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Magento\Config\Model\Config\Source\Yesno</item>
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">select</item>
+                    <item name="label" translate="true" xsi:type="string">Is Api Pregnant</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/select</item>
+                    <item name="dataType" xsi:type="string">select</item>
+                    <item name="editor" xsi:type="array">
+                        <item name="editorType" xsi:type="string">select</item>
+                    </item>
+                </item>
+            </argument>
+		</column>
+		<column name="pixiemediatest_programme_used">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">Previous PixieMediaTest Programme Used</label>
+				<editor>
+					<editorType>text</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">false</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+		<column name="is_api_medication">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">Is the api on any other medication?</label>
+				<editor>
+					<editorType>text</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">false</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+		<column name="cph_number">
+			<settings>
+				<label translate="true">CPH Number</label>
+				<editor>
+					<editorType>text</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">false</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+		<actionsColumn class="RichardParnabyKing\PixieMediaTest\Ui\Component\Listing\Column\ApiActions" name="actions">
+			<settings>
+				<indexField>id</indexField>
+				<sortOrder>200</sortOrder>
+				<resizeEnabled>false</resizeEnabled>
+				<resizeDefaultWidth>107</resizeDefaultWidth>
+			</settings>
+		</actionsColumn>
+	</columns>
+</listing>
