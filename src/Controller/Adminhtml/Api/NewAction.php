@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace \RichardParnabyKing\PixieMediaTest\Controller\Adminhtml\Api;
+namespace RichardParnabyKing\PixieMediaTest\Controller\Adminhtml\Api;
 
 class NewAction extends \RichardParnabyKing\PixieMediaTest\Controller\Adminhtml\Api
 {

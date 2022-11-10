@@ -54,6 +54,7 @@ class Pager extends Template
     }
 
     public function getPagerCount() {
-        return [ 10, 25, 50, 100 ];
+        $pages = [ 10, 25, 50, 100 ];
+        return array_combine($pages, $pages);
     }
 }
