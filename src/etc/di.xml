@@ -17,4 +17,10 @@
 			</argument>
 		</arguments>
 	</type>
+    <virtualType name="RichardParnabyKing\PixieMediaTest\Model\ResourceModel\Api\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">rpk_chucknorris</argument>
+            <argument name="resourceModel" xsi:type="string">RichardParnabyKing\PixieMediaTest\Model\ResourceModel\Api\Collection</argument>
+        </arguments>
+    </virtualType>
 </config>
