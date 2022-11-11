@@ -13,7 +13,7 @@
 	<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
 		<arguments>
 			<argument name="collections" xsi:type="array">
-				<item name="richardparnabyking_pixiemediatest_api_listing_data_source" xsi:type="string">RichardParnabyKing\PixieMediaTest\Model\ResourceModel\Api\Grid\Collection</item>
+				<item name="richardparnabyking_pixiemediatest_api_listing_data_source" xsi:type="string">RichardParnabyKing\PixieMediaTest\Model\ResourceModel\Api\Collection</item>
 			</argument>
 		</arguments>
 	</type>
