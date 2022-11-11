@@ -31,7 +31,7 @@ abstract class Api extends \Magento\Backend\App\Action
      */
     public function initPage($resultPage)
     {
-        $resultPage->setActiveMenu(self::ADMIN_RESOURCE)
+        $resultPage
             ->addBreadcrumb(__('Richard PK'), __('Richard PK'))
             ->addBreadcrumb(__('Api'), __('Api'));
         return $resultPage;
