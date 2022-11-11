@@ -6,6 +6,7 @@ class InlineEdit extends \Magento\Backend\App\Action
 {
 
     protected $jsonFactory;
+    protected $apiModel;
 
     /**
      * @param \Magento\Backend\App\Action\Context $context
@@ -13,10 +14,12 @@ class InlineEdit extends \Magento\Backend\App\Action
      */
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
-        \Magento\Framework\Controller\Result\JsonFactory $jsonFactory
+        \Magento\Framework\Controller\Result\JsonFactory $jsonFactory,
+        \RichardParnabyKing\PixieMediaTest\Model\Api $apiModel
     ) {
         parent::__construct($context);
         $this->jsonFactory = $jsonFactory;
+        $this->apiModel = $apiModel;
     }
 
     /**

@@ -38,13 +38,13 @@ class ApiActions extends \Magento\Ui\Component\Listing\Columns\Column
     {
         if (isset($dataSource['data']['items'])) {
             foreach ($dataSource['data']['items'] as & $item) {
-                if (isset($item['api_id'])) {
+                if (isset($item['id'])) {
                     $item[$this->getData('name')] = [
                         'edit' => [
                             'href' => $this->urlBuilder->getUrl(
                                 static::URL_PATH_EDIT,
                                 [
-                                    'api_id' => $item['api_id']
+                                    'id' => $item['id']
                                 ]
                             ),
                             'label' => __('Edit')
@@ -53,7 +53,7 @@ class ApiActions extends \Magento\Ui\Component\Listing\Columns\Column
                             'href' => $this->urlBuilder->getUrl(
                                 static::URL_PATH_DELETE,
                                 [
-                                    'api_id' => $item['api_id']
+                                    'id' => $item['id']
                                 ]
                             ),
                             'label' => __('Delete'),
